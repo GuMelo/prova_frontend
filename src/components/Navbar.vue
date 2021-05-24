@@ -27,11 +27,11 @@ export default {
 <style>
   #navbar {
     background: #244D68;
-    padding: 0px 20px;
+    padding: 10px 20px;
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 60px;
+    /* height: 60px; */
   }
   .nav-item {
     margin: 0 10px;

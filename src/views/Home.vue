@@ -40,7 +40,9 @@
     color: #173244;
     padding-bottom: 20px;
   }
-
+  .home-title p {
+    padding: 0 20px;
+  }
   .home-title p {
     font-size: 14px;
   }
