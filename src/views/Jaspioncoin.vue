@@ -164,11 +164,9 @@
 
           if(cripto_values !== "OK") {
             var sortKey = JSON.parse(cripto_values)
-              console.log("KEY", sortKey)
             for(var key of Object.keys(sortKey)){
               if(key === "jaspion_coin_value") {
                 values = cripto_values
-                console.log(values)
               }
             }
           }
