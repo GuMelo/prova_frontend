@@ -52,7 +52,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone <https://github.com/GuMelo/prova_brasil317-front>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd prova_brasil317/api
+$ cd prova_brasil317-front/api
 
 # Estando na raiz (pasta api), execute o comando abaixo para iniciar o docker compose.
 $ docker-compose up --build
