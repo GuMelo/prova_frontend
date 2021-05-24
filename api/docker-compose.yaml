@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+
+  db-postgres:
+    #network_mode: host
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: devops/postgres.dockerfile
+    command: postgres -c 'max_connections=500'
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=jaspion_db
+      - TZ=GMT
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+  websocketd:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: devops/Dockerfile
+    links: 
+      - db-postgres
+      - db-redis
+    ports:
+      - 5000:5000
+    environment: 
+      - REDIS_SERVER=db-redis
+      
+
+  db-redis:
+    #network_mode: host
+    image: bitnami/redis:5.0
+    #restart: always
+    restart: on-failure
+    environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
+    # entrypoint: redis-server --appendonly yes
+    #volumes:
+    #  - ./devops/redis-persistence:/bitnami/redis/data
+
+ 
