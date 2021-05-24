@@ -1,6 +1,6 @@
 # Prova Frontend Pleno - Brasil 317 🚀
 
-<p align="left">O exercício proposto será você criar um frontend responsível, aonde terá que se conectar no websocket, que esta nesse projeto. Os dados são de 3 criptomoedas muito volateis, aonde se faz necessário armazenar em cache esses dados (vuex), e caso perca a conexão, continuar o gráfico de onde parou.</p>
+<p align="left">O exercício proposto será você criar um frontend responsível, aonde terá que se conectar no websocket, que esta nesse projeto. Os dados são de 3 criptomoedas muito volateis, aonde se faz necessário armazenar em cache esses dados, e caso perca a conexão, continuar o gráfico de onde parou.</p>
 
 
 ## 🚧 Requisitos da prova
@@ -52,7 +52,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone <https://github.com/GuMelo/prova_brasil317-front>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd prova_brasil317/api
+$ cd prova_brasil317-front/api
 
 # Estando na raiz (pasta api), execute o comando abaixo para iniciar o docker compose.
 $ docker-compose up --build
