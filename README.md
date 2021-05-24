@@ -49,10 +49,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/GuMelo/prova_brasil317>
+$ git clone <https://github.com/GuMelo/prova_brasil317-front>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd prova_frontend_brasil317/api
+$ cd prova_brasil317/api
 
 # Estando na raiz (pasta api), execute o comando abaixo para iniciar o docker compose.
 $ docker-compose up --build
@@ -65,10 +65,10 @@ $ docker-compose up --build
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/GuMelo/prova_brasil317>
+$ git clone <https://github.com/GuMelo/prova_brasil317-front>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd prova_frontend_brasil317/front
+$ cd prova_brasil317-front
 
 # Estando na raiz do projeto (pasta front), execute o comando abaixo para instalar as dependências do projeto.
 $ yarn install
