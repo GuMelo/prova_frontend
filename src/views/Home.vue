@@ -9,7 +9,7 @@
       <h1>Bem vindo ao Crypto J.</h1> 
       <p>Temos informações em tempo real das maiores criptomoedas do mercado financeiro.</p>
       <p>Acompanhe as criptomoedas Jaspioncoin, Jibancoin e a Jirayacoin!</p>
-      <p>No menú acima você encontra os gráficos individuais em <b>TEMPO REAL</b>, e no gráfico abaixo você pode ver o <b>histórico</b> do último ano das <i>3 principais criptomoedas!</i></p>
+      <p>No menú acima você encontra os gráficos individuais em <b>TEMPO REAL</b>, e no gráfico abaixo você pode ver o <b>HISTÓRICO</b> do último ano das <i>3 principais criptomoedas!</i></p>
     </div>
     <div class="home-body">
       <div id="chartdiv" ref="chartdiv" />

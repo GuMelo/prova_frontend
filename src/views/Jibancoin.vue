@@ -11,7 +11,7 @@
 <style>
   #chartdiv {
     width: 100%;
-    height: 75vh;
+    height: 70vh;
   }
 
   .jibancoin {

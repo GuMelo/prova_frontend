@@ -22,8 +22,10 @@ export default {
     justify-content: space-between;
     align-items: center;
     background: #244D68;
-    padding: 0px 20px;
-    height: 60px;
+    width: 100%;
+    bottom: 0;
+    padding: 5px 20px;
+    position: fixed;
     z-index: 1;
   }
 
@@ -40,7 +42,7 @@ export default {
   }
   .footer-left, .footer-right, p {
     margin-bottom: 0 !important;
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 
   .link {
