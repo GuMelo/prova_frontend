@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="jibancoin">
-      <h2>Jibancoin (JBC)</h2>
-      <p>Atualizado em tempo real.</p>
+      <h2>{{ name }}</h2>
+      <p>{{ subtitle }}</p>
     </div>
     <div id="chartdiv" ref="chartdiv" />
   </div>
@@ -11,7 +11,7 @@
 <style>
   #chartdiv {
     width: 100%;
-    height: 75vh;
+    height: 70vh;
   }
 
   .jibancoin {
@@ -40,9 +40,14 @@
   var cripto_values
 
   export default {
-    name: 'Jibancoin',
     
-    data: cripto_values,
+    data: function() {
+      return {
+        name: 'Jibancoin (JBC)',
+        subtitle: 'Atualizado em tempo real.',
+        cripto_values
+      }
+    },
     
     methods: {
       formatDate(date) {
@@ -58,7 +63,7 @@
       }
     },
 
-    beforeMount() {
+    beforeMount: function() {
         var supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window;
         if (supportsWebSockets) {
 
@@ -81,7 +86,7 @@
         }
       },
 
-    mounted() {
+    mounted: function() {
       let chart = am4core.create(this.$refs.chartdiv, am4charts.XYChart)
 
       chart.paddingRight = 40
@@ -168,7 +173,7 @@
       startInterval()
     },
 
-    beforeDestroy() {
+    beforeDestroy: function() {
       if (this.chart) {
         this.chart.dispose()
       }

@@ -5,6 +5,9 @@
       <img class="efeito-flutuante" src="../assets/img/jiraya.png" width="27%"/>
       <img class="efeito-flutuante" src="../assets/img/jiban.png" width="16%"/>
     </div> -->
+    <div v-for="criptomoeda in criptomoedas" :key="criptomoeda.id">
+      <h3>{{ criptomoeda }}</h3>
+    </div>
     <div class="home-title">
       <h1>Bem vindo ao Crypto J.</h1> 
       <p>Temos informações em tempo real das maiores criptomoedas do mercado financeiro.</p>
@@ -53,16 +56,19 @@
   import * as am4charts from "@amcharts/amcharts4/charts"
   import am4themes_animated from "@amcharts/amcharts4/themes/animated"
   import am4themes_material from "@amcharts/amcharts4/themes/material"
+  import { mapState } from 'vuex'
 
   am4core.useTheme(am4themes_animated)
   am4core.useTheme(am4themes_material)
 
-  // var cripto_values
-
   export default {
-    name: 'Crypto J.',
-
-    mounted() {
+    computed: {
+      ...mapState('criptomoedas', ['criptomoedas'])
+    },
+    created() {
+      this.$store.dispatch('criptomoedas/loadCriptos')
+    },
+    mounted: function() {
       // Create chart
       var chart = am4core.create("chartdiv", am4charts.XYChart);
 
@@ -159,7 +165,6 @@
 
       valueAxis3.renderer.grid.template.strokeOpacity = 0.07;
       dateAxis3.renderer.grid.template.strokeOpacity = 0.07;
-
     }
   }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="jaspioncoin">
-      <h2>Jaspioncoin (JPN)</h2>
-      <p>Atualizado em tempo real.</p>
+      <h2>{{ name }}</h2>
+      <p>{{ subtitle }}</p>
     </div>
     <div id="chartdiv" ref="chartdiv" />
   </div>
@@ -11,7 +11,7 @@
 <style>
   #chartdiv {
     width: 100%;
-    height: 75vh;
+    height: 70vh;
   }
 
   .jaspioncoin {
@@ -33,16 +33,30 @@
   import * as am4charts from "@amcharts/amcharts4/charts"
   import am4themes_animated from "@amcharts/amcharts4/themes/animated"
   import am4themes_material from "@amcharts/amcharts4/themes/material"
+  import { mapState } from 'vuex'
 
   am4core.useTheme(am4themes_animated)
   am4core.useTheme(am4themes_material)
 
-  var cripto_values
+  var criptomoedas
 
   export default {
-    name: 'Jaspioncoin',
-    
-    data: cripto_values,
+    data: function() {
+      return {
+        name: "Jaspioncoin (JPN)",
+        subtitle: 'Atualizado em tempo real.',
+        criptomoedas: 0
+      }
+    },
+    computed: {
+      // ...mapState('criptomoedas', ['criptomoedas']),
+      ...mapState({
+        criptomoedas: state => state.jaspion_coin
+      })
+    },
+    created() {
+      this.$store.dispatch('criptomoedas/loadCriptos')
+    },
     
     methods: {
       formatDate(date) {
@@ -58,7 +72,7 @@
       }
     },
 
-    beforeMount() {
+    beforeMount: function() {
         var supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window;
         if (supportsWebSockets) {
 
@@ -70,7 +84,7 @@
 
           ws.onmessage = function (evt) {
               var received_msg = evt.data
-              cripto_values = received_msg
+              criptomoedas = received_msg
           }
 
           ws.onclose = function () {
@@ -81,7 +95,7 @@
         }
       },
 
-    mounted() {
+    mounted: function() {
       let chart = am4core.create(this.$refs.chartdiv, am4charts.XYChart)
 
       chart.paddingRight = 40
@@ -132,7 +146,6 @@
       scrollbarX.series.push(series)
       chart.scrollbarX = scrollbarX
 
-
       // bullet at the front of the line
       var bullet = series.createChild(am4charts.CircleBullet)
       bullet.circle.radius = 5
@@ -162,11 +175,12 @@
         interval = setInterval(function() {
           var lastdataItem = series.dataItems.getIndex(series.dataItems.length - 1);
 
-          if(cripto_values !== "OK") {
-            var sortKey = JSON.parse(cripto_values)
+          if(criptomoedas !== "OK") {
+            // console.log("Cripto:", criptomoedas)
+            var sortKey = JSON.parse(criptomoedas)
             for(var key of Object.keys(sortKey)){
               if(key === "jaspion_coin_value") {
-                values = cripto_values
+                values = criptomoedas
               }
             }
           }
@@ -180,7 +194,7 @@
       startInterval()
     },
 
-    beforeDestroy() {
+    beforeDestroy: function() {
       if (this.chart) {
         this.chart.dispose()
       }
