@@ -17,11 +17,11 @@
 
 🏁 Codificar o frontend usando vue.js 2 ou 3, e a framework de css que for familiar (bootstrap por exemplo)
 
-🚫 Criar testes unitarios com jest
+🏁 Criar testes unitarios com jest
 
 🏁 Renderização da tela em tempo real, com a biblioteca de charts que for mais familiar (echarts por exemplo)
 
-🚫 Relatorio de 80% de cobertura de codigo
+🏁 Relatorio de 80% de cobertura de codigo
 
 🏁 README auto-explicativo de como rodar seu frontend (se quiser fazer com docker , melhor ), e como executar o jest
 
