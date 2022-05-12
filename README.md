@@ -1,4 +1,4 @@
-# Prova Frontend - Brasil 317 🚀
+# Prova Frontend 🚀
 
 <p align="left">O exercício proposto será você criar um frontend responsível, aonde terá que se conectar no websocket, que esta nesse projeto. Os dados são de 3 criptomoedas muito volateis, aonde se faz necessário armazenar em cache esses dados, e caso perca a conexão, continuar o gráfico de onde parou.</p>
 
